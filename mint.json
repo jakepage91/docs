@@ -54,11 +54,11 @@
   "navigation": [
     {
       "group": "Get Started",
-      "pages": ["introduction", "installation", "what-is-komiser", {"group": "Guides", "pages": ["custom-views", "dashboard", "alerts"]}]
+      "pages": ["get-started/introduction", "get-started/installation", "get-started/what-is-komiser", {"group": "Guides", "pages": ["get-started/guides/custom-views", "get-started/guides/dashboard", "get-started/guides/alerts"]}]
     },
     {
       "group": "Configuration",
-      "pages": [{"group": "Cloud Providers", "pages": ["configuration/cloud-providers/aws", "configuration/cloud-providers/azure", "configuration/cloud-providers/civo", "configuration/cloud-providers/digital-ocean", "configuration/cloud-providers/k8s", "configuration/cloud-providers/linode", "configuration/cloud-providers/tencent", "configuration/cloud-providers/scaleway", "configuration/cloud-providers/mongodb-atlas", "configuration/cloud-providers/gcp", "configuration/cloud-providers/oracle"]}, "contributing", "telemetry", "community-meetings", "faqs", "changelog"]
+      "pages": [{"group": "Cloud Providers", "pages": ["configuration/cloud-providers/aws", "configuration/cloud-providers/azure", "configuration/cloud-providers/civo", "configuration/cloud-providers/digital-ocean", "configuration/cloud-providers/k8s", "configuration/cloud-providers/linode", "configuration/cloud-providers/tencent", "configuration/cloud-providers/scaleway", "configuration/cloud-providers/mongodb-atlas", "configuration/cloud-providers/gcp", "configuration/cloud-providers/oracle"]}, "configuration/contributing", "configuration/telemetry", "configuration/events", "configuration/faqs"]
     },
     {
       "group": "API Documentation",
