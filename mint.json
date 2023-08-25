@@ -1,9 +1,9 @@
 {
   "$schema": "https://mintlify.com/schema.json",
-  "name": "Starter Kit",
+  "name": "Komiser",
   "logo": {
-    "dark": "/logo/dark.svg",
-    "light": "/logo/light.svg"
+    "dark": "/logo/komiser-logo-tw-dark.png",
+    "light": "/logo/komiser-logo-light.png"
   },
   "favicon": "/favicon.png",
   "colors": {
@@ -36,29 +36,29 @@
   ],
   "anchors": [
     {
-      "name": "Documentation",
-      "icon": "book-open-cover",
-      "url": "https://mintlify.com/docs"
+      "name": "YouTube channel",
+      "icon": "youtube",
+      "url": "https://www.youtube.com/@tailwarden"
     },
     {
       "name": "Community",
-      "icon": "slack",
-      "url": "https://mintlify.com/community"
+      "icon": "discord",
+      "url": "https://discord.tailwarden.com"
     },
     {
       "name": "Blog",
       "icon": "newspaper",
-      "url": "https://mintlify.com/blog"
+      "url": "https://www.tailwarden.com/blog"
     }
   ],
   "navigation": [
     {
       "group": "Get Started",
-      "pages": ["introduction", "quickstart", "development"]
+      "pages": ["introduction", "installation", "what-is-komiser", {"group": "Guides", "pages": ["custom-views", "dashboard", "alerts"]}]
     },
     {
-      "group": "Essentials",
-      "pages": ["essentials/markdown", "essentials/code", "essentials/images", "essentials/settings", "essentials/navigation"]
+      "group": "Configuration",
+      "pages": [{"group": "Cloud Providers", "pages": ["configuration/cloud-providers/aws", "configuration/cloud-providers/azure", "configuration/cloud-providers/civo", "configuration/cloud-providers/digital-ocean", "configuration/cloud-providers/k8s", "configuration/cloud-providers/linode", "configuration/cloud-providers/tencent", "configuration/cloud-providers/scaleway", "configuration/cloud-providers/mongodb-atlas", "configuration/cloud-providers/gcp", "configuration/cloud-providers/oracle"]}, "contributing", "telemetry", "community-meetings", "faqs", "changelog"]
     },
     {
       "group": "API Documentation",
@@ -75,8 +75,9 @@
     }
   ],
   "footerSocials": {
-    "twitter": "https://twitter.com/mintlify",
-    "github": "https://github.com/mintlify",
-    "linkedin": "https://www.linkedin.com/company/mintsearch"
+    "twitter": "https://twitter.com/komiserdotio",
+    "github": "https://github.com/tailwarden/komiser",
+    "linkedin": "https://www.linkedin.com/company/tailwarden",
+    "youtube": "https://www.youtube.com/@tailwarden"
   }
 }
