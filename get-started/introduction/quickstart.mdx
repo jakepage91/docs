@@ -1,80 +1,71 @@
 ---
 slug: /introduction/getting-started
-title: Installation
-sidebar_label: Installation
+title: Quickstart
+sidebar_label: Quickstart
 ---
 
-You can install the CLI with a `curl` utility script or by downloading the binary from the releases page. Once installed you'll get the `komiser` command.
+## Komiser configurations
+Starting from Komiser v3 and beyond, you komiser configuration which holds the credentials to your cloud providers is defined through a **config.toml** file. When you position the config.toml file within the same directory as the Komiser binary, it will be automatically detected. However, if you choose to place it in an alternate location, you can do so and then provide the path using the `--config` flag.
 
-### Linux
-
+Example `start` command
 ```
-wget https://cli.komiser.io/latest/komiser_Linux_x86_64 -O komiser
-```
-
-### Windows
-
-```
-wget https://cli.komiser.io/latest/komiser_Windows_x86_64.zip
-tar -xf komiser_Windows_x86_64.zip
+komiser start 
 ```
 
-### Mac OS X
+## Config.toml file
+---
 
-For ARM architecture (M1 & M2 Chip)
+<img
+  src="/images/config-komiser.png"
+  alt="Config-Komiser"
+/>
 
+Cloud provider account configuration is done through the config.toml file, using either the `ENVIRONMENT_VARIABLES` or `CREDENTIALS_FILE`. Komiser now supports multiple cloud accounts by default. 
+
+### Data persistence
+Once added the credentials to your cloud provider accounts you will want to choose between these two methods of persisting your AWS Account data.
+
+#### Postgres
+**Add to config.toml file**
 ```
-wget https://cli.komiser.io/latest/komiser_Darwin_arm64 -O komiser
+[postgres]
+uri="postgres://postgres:komiser@localhost:5432/komiser?sslmode=disable"
+```
+Note: For Postgres, Komiser anticipates the existence of a role `postgres` and a database `komiser` on the local Postgres server.
+
+#### SQLite
+```
+# Add to config.toml file
+
+[sqlite]
+  file = "komiser.db"
 ```
 
-For AMD architecture (Intel Chip)
+ *The reason for this external data persistence is to improve the filtering, sorting and tagging management experience making it faster and smoother. It also serves as a standalone DB which you are free to query and visualize as you see fit.*  
 
+### Example config.toml
 ```
-wget https://cli.komiser.io/latest/komiser_Darwin_x86_64 -O komiser
+[[aws]]
+name="sandbox"
+source="CREDENTIALS_FILE"
+path=./path/to/credentials/file
+profile="default"
+
+[[aws]]
+name="staging"
+source="CREDENTIALS_FILE"
+path=./path/to/credentials/file
+profile="staging-account"
+
+[[gcp]]
+name="production"
+source="ENVIRONMENT_VARIABLES"
+# path=./path/to/credentials/file specify if CREDENTIALS_FILE is used
+profile="production"
+
+[postgres]
+uri="postgres://postgres:komiser@localhost:5432/komiser?sslmode=disable"
 ```
-
-> Note
-    Make sure to add the execution permission to Komiser `chmod +x komiser`.
-
-
-### Homebrew installation
-
-```
-brew update
-brew tap tailwarden/komiser
-brew install komiser
-
-# Make sure you are running the newest version of Komiser:
-brew update
-brew reinstall komiser
-```
-
-## How to use
-
-### Komiser CLI installation
-
-<div style={{
-    position: 'relative',
-    paddingBottom: '56.25%',
-    paddingTop:'30px',
-    height:0,
-    overflow:'hidden',
-  }}>
-  <iframe
-    src='https://www.youtube.com/embed/-jDXVO6NjVk'
-    allowFullScreen
-    webkitallowfullscreen="true"
-    frameBorder="0"
-    style={{
-      position: 'absolute',
-      top:0,
-      left:0,
-      width:'100%',
-      height:'100%',
-    }}
-  >
-  </iframe>
-</div>
 
 ### Options
 
@@ -93,6 +84,14 @@ Available Commands:
 Flags:
   -h, --help   help for komiser
 ```
+
+Once you have correctly build your [config.toml file](https://www.youtube.com/watch?v=-jDXVO6NjVk&t=102s), in the same directory, run the command:
+
+```
+komiser start
+```
+
+Point your browser to http://localhost:3000
 
 ### Docker
 

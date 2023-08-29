@@ -20,8 +20,8 @@
   },
   "topbarLinks": [
     {
-      "name": "Support",
-      "url": "mailto:hi@mintlify.com"
+      "name": "Changelog",
+      "url": "https://www.tailwarden.com/changelog"
     }
   ],
   "topbarCtaButton": {
@@ -54,7 +54,7 @@
   "navigation": [
     {
       "group": "Get Started",
-      "pages": ["get-started/introduction", "get-started/installation", "get-started/what-is-komiser", {"group": "Guides", "pages": ["get-started/guides/custom-views", "get-started/guides/dashboard", "get-started/guides/alerts"]}]
+      "pages": ["get-started/introduction/what-is-komiser", {"group": "Introduction", "pages": ["get-started/introduction/installation", "get-started/introduction/quickstart"]}, {"group": "Guides", "pages": ["get-started/guides/custom-views", "get-started/guides/dashboard", "get-started/guides/alerts"]}]
     },
     {
       "group": "Configuration",
