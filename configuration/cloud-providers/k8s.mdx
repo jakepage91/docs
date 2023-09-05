@@ -4,14 +4,17 @@ title: Kubernetes
 sidebar_label: Kubernetes
 ---
 
-## Supported resources
-- Deployments
-- Ingress controllers
-- Pods
-- PersistentVolumes
-- PersistentVolumeClaims
-- ServiceAccounts
-- Services
+<AccordionGroup>
+  <Accordion title="Supported resource list">
+  - Deployments
+  - Ingress controllers
+  - Pods
+  - PersistentVolumes
+  - PersistentVolumeClaims
+  - ServiceAccounts
+  - Services
+  </Accordion>
+</AccordionGroup>
 
 ## Local Komiser CLI integration with Kubernetes
 
@@ -28,7 +31,7 @@ Choose between these two methods of persisting your Kubernetes cluster data.
 [postgres]
 uri="postgres://postgres:komiser@localhost:5432/komiser?sslmode=disable"
 ```
-Note: For Postgres, Komiser anticipates the existence of a role `postgres` and a database `komiser` on the local Postgres server.
+<Tip> For Postgres, Komiser anticipates the existence of a role `postgres` and a database `komiser` on the local Postgres server. </Tip>
 
 #### SQLite
 
@@ -59,18 +62,18 @@ file="komiser.db
 ```
                                         
 ### Run it!
-* That should be it. Try out the following command from your command prompt to start the server:
+That should be it. Try out the following command from your command prompt to start the server:
 
 ```
 komiser start 
 ```
 
-* Point your browser to `http://localhost:3000`
+Point your browser to `http://localhost:3000`
 
 ### You should see something like this!
 > In komiser v3.0.1 only `pods` and `services` are supported. More Kubernetes resources will be added shortly. 
 
-![Kubernetes-dashboard](/img/kubernetes-image-docs.png)
+![Kubernetes-dashboard](/images/k8s-view.png)
 
 ### Here's a video tutorial on how to integrate your Kubernetes cluster with Komiser:
 

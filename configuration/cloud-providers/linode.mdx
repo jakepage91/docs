@@ -4,13 +4,16 @@ title: Linode
 sidebar_label: Linode
 ---
 
-## Supported resources
-- Buckets
-- Compute instances
-- Databases
-- Firewalls
-- NodeBalancers
-- Volumes
+<AccordionGroup>
+  <Accordion title="Supported resource list">
+  - Buckets
+  - Compute instances
+  - Databases
+  - Firewalls
+  - NodeBalancers
+  - Volumes
+  </Accordion>
+</AccordionGroup>
 
 ## Local Komiser CLI (Single account)
 
@@ -23,7 +26,7 @@ We've also added 2 methods of persisting your account data.
 [postgres]
 uri="postgres://postgres:komiser@localhost:5432/komiser?sslmode=disable"
 ```
-Note: For Postgres, Komiser anticipates the existence of a role `postgres` and a database `komiser` on the local Postgres server.
+<Tip> For Postgres, Komiser anticipates the existence of a role `postgres` and a database `komiser` on the local Postgres server. </Tip>
 
 ### SQLite
 
@@ -54,13 +57,13 @@ file="komiser.db
                                         
 
 ### Run it!
-* That should be it. Try out the following from your command prompt to start the server:
+That should be it. Try out the following from your command prompt to start the server:
 
 ```
 komiser start 
 ```
 
-* Point your browser to `http://localhost:3000`
+Point your browser to `http://localhost:3000`
 
 ## Local Komiser CLI (Multiple accounts)
 Simply add more authentication blocks to the configuration file

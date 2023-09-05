@@ -4,21 +4,23 @@ title: Google Cloud Platform
 sidebar_label: Google Cloud Platform (GCP)
 ---
 
-## Supported resources
-
-- Certificate Manager
-- Cloud Storage Buckets
-- Cloud Functions
-- Compute Engine VM Instances
-- IAM Roles
-- IAM Service Accounts
-- SQL Instances
-- BigQuery tables
-- SSL certificates
-- Redis instances
-- Gateways
-- KMS Keys
-- Disks
+<AccordionGroup>
+  <Accordion title="Supported resource list">
+  - Certificate Manager
+  - Cloud Storage Buckets
+  - Cloud Functions
+  - Compute Engine VM Instances
+  - IAM Roles
+  - IAM Service Accounts
+  - SQL Instances
+  - BigQuery tables
+  - SSL certificates
+  - Redis instances
+  - Gateways
+  - KMS Keys
+  - Disks
+  </Accordion>
+</AccordionGroup>
 
 ## Local Komiser CLI (Single account)
 
@@ -31,7 +33,7 @@ We've also added 2 methods of persisting your account data.
 [postgres]
   uri="postgres://postgres:komiser@localhost:5432/komiser?sslmode=disable"
 ```
-Note: For Postgres, Komiser anticipates the existence of a role `postgres` and a database `komiser` on the local Postgres server.
+<Tip> For Postgres, Komiser anticipates the existence of a role `postgres` and a database `komiser` on the local Postgres server. </Tip>
 
 ### SQLite 
 ```
@@ -63,13 +65,13 @@ The `name` can be anything you want. You can use different names in the case you
 Find your `organizationId` by pressing on the gear icon next to your Organization name.
 
 ### Run it!
-* That should be it. Try out the following from your command prompt to start the server:
+That should be it. Try out the following from your command prompt to start the server:
 
 ```
 komiser start 
 ```
 
-* Point your browser to `http://localhost:3000`
+Point your browser to `http://localhost:3000`
 
 ## Local Komiser CLI (Multiple accounts)
 Simply add more authentication blocks to the configuration file

@@ -4,44 +4,51 @@ title: Amazon Web Services
 sidebar_label: Amazon Web Services
 ---
 
+<AccordionGroup>
+  <Accordion title="Supported resource list">
+  - API Gateway
+  - Access control lists
+  - CloudFront distributions
+  - CloudWatch Dashboards
+  - CloudWatch alarms
+  - CloudWatch metrics
+  - CloudWatch Log groups
+  - DynamoDB tables
+  - EC2 Internet Gateways
+  - EC2 instances
+  - EC2 Snapshots
+  - EC2 Spot instances
+  - EC2 Key pairs
+  - EC2 Placement groups
+  - ECR repositories
+  - ECS clusters
+  - ECS services
+  - ECS tasks
+  - EKS clusters
+  - Elastic IPs
+  - Elastic LoadBalancers
+  - Elastic file systems
+  - ElasticSearch clusters
+  - IAM policies
+  - IAM roles
+  - IAM SAML providers
+  - KMS keys
+  - Lambda functions
+  - RDS clusters
+  - S3 buckets
+  - SNS topics
+  - SQS queues
+  - Security groups
+  - Subnets
+  - VPCs
+  - Volumes
+  - OpenSearch domains
+
+  </Accordion>
+</AccordionGroup>
+
 ## Supported resources
-- API Gateway
-- Access control lists
-- CloudFront distributions
-- CloudWatch Dashboards
-- CloudWatch alarms
-- CloudWatch metrics
-- CloudWatch Log groups
-- DynamoDB tables
-- EC2 Internet Gateways
-- EC2 instances
-- EC2 Snapshots
-- EC2 Spot instances
-- EC2 Key pairs
-- EC2 Placement groups
-- ECR repositories
-- ECS clusters
-- ECS services
-- ECS tasks
-- EKS clusters
-- Elastic IPs
-- Elastic LoadBalancers
-- Elastic file systems
-- ElasticSearch clusters
-- IAM policies
-- IAM roles
-- IAM SAML providers
-- KMS keys
-- Lambda functions
-- RDS clusters
-- S3 buckets
-- SNS topics
-- SQS queues
-- Security groups
-- Subnets
-- VPCs
-- Volumes
-- OpenSearch domains
+
 
 ## Komiser configurations
 From Komiser v3 onwards we specify our komiser configuration by way of a `config.toml` file. If you place the config.toml file in the same directory as the Komiser binary then it will pick it up by default, if it's placed in a different location, then we need to pass in the path using the `--config` flag. 
@@ -55,8 +62,14 @@ komiser start
 ---
 
 <img
-  src="/images/config-komiser.png"
-  alt="Config-Komiser"
+  className="block dark:hidden"
+  src="/images/komiser-config-light.png"
+  alt="Hero Light"
+/>
+<img
+  className="hidden dark:block"
+  src="/images/komiser-config-dark.png"
+  alt="Hero Dark"
 />
 
 Komiser now supports multiple cloud accounts by default. Account configuration is done through the config.toml file, using either the `ENVIRONMENT_VARIABLES` or `CREDENTIALS_FILE`.
@@ -70,17 +83,17 @@ Choose between these two methods of persisting your AWS Account data.
 [postgres]
 uri="postgres://postgres:komiser@localhost:5432/komiser?sslmode=disable"
 ```
-Note: For Postgres, Komiser anticipates the existence of a role `postgres` and a database `komiser` on the local Postgres server.
+<Tip> For Postgres, Komiser anticipates the existence of a role `postgres` and a database `komiser` on the local Postgres server. </Tip>
 
 #### SQLite
+ 
+Add to config.toml file
 ```
-# Add to config.toml file
-
 [sqlite]
   file = "komiser.db"
 ```
 
- *The reason for this external data persistence is to improve the filtering, sorting and tagging management experience making it faster and smoother. It also serves as a standalone DB which you are free to query and visualize as you see fit.*  
+<Note> The reason for this external data persistence is to improve the filtering, sorting and tagging management experience making it faster and smoother. It also serves as a standalone DB which you are free to query and visualize as you see fit. </Note>  
 
 ### Example config.toml
 ```
@@ -111,7 +124,7 @@ uri="postgres://postgres:komiser@localhost:5432/komiser?sslmode=disable"
 When using the CLI you'll generally need your AWS credentials to authenticate with AWS services. Komiser supports multiple methods of providing these credentials. By default the CLI will source credentials automatically from its default credential chain. 
 In the `source` section of the cloud profile inside the `config.toml` file we can choose between `ENVIRONMENT_VARIABLES` or `CREDENTIALS_FILE`
 
-* Environment Credentials - Set of environment variables that are useful when sub processes are created for specific roles. Useful for local development
+> Environment Credentials - Set of environment variables that are useful when sub processes are created for specific roles. Useful for local development
 
 ```
 [[gcp]]
@@ -120,7 +133,7 @@ source="ENVIRONMENT_VARIABLES"
 profile="production"
 ```
 
-* EC2 Instance Role Credentials - Use EC2 Instance Role to assign credentials to application running on an EC2 instance. This removes the need to manage credential files in production.
+> EC2 Instance Role Credentials - Use EC2 Instance Role to assign credentials to application running on an EC2 instance. This removes the need to manage credential files in production.
 
 ```
 [[aws]]
@@ -150,13 +163,13 @@ role_session_name = komiser_session
 ---
 
 ### Create an IAM user
-* Create an IAM user with the following IAM [policy](https://raw.githubusercontent.com/mlabouardy/komiser/master/policy.json):
+Create an IAM user with the following IAM [policy](https://raw.githubusercontent.com/mlabouardy/komiser/master/policy.json):
 
 ```
 wget https://raw.githubusercontent.com/mlabouardy/komiser/master/policy.json
 ```
 ### Add user credentials locally
-* Add your **Access Key ID** and **Secret Access Key** to *~/.aws/credentials* using this format
+Add your **Access Key ID** and **Secret Access Key** to *~/.aws/credentials* using this format
 
 ``` 
 [default]
@@ -165,7 +178,7 @@ aws_secret_access_key = <secret access key>
 region = <AWS region>
 ```
 ### Run Komiser CLI
-* That should be it. Try out the following from your command prompt to start the server:
+That should be it. Try out the following from your command prompt to start the server:
 
 ```
 komiser start
@@ -190,7 +203,7 @@ We will be using the official Komiser [Helm Chart](https://github.com/tailwarden
 
 ### Prerequisite
 
-* [Helm](https://helm.sh/docs/intro/install/) installed locally 
+[Helm](https://helm.sh/docs/intro/install/) installed locally 
 
 ### Create and IAM OIDC provider for your cluster
 
@@ -258,7 +271,7 @@ We will be using the official Komiser [Helm Chart](https://github.com/tailwarden
    echo "${TRUST_RELATIONSHIP}" > trust.json
    ```
 
-`NOTE: Make sure to substitute ${NAMESPACE} for the namespace you will deploy the helm chart in. If deployed in any other namespace, you will see sts:AssumeRoleWithWebIdentity failure messages in the pod logs.`
+<Info> Make sure to substitute ${NAMESPACE} for the namespace you will deploy the helm chart in. If deployed in any other namespace, you will see sts:AssumeRoleWithWebIdentity failure messages in the pod logs. </Info>
 
 1. Run the modified code block from the previous step to create a file named *`trust.json`*\.
 
@@ -386,8 +399,8 @@ Solution diagram:
 1. For **Audience**, enter `sts.amazonaws.com` and choose **Add provider**\.
 
 ### Create A `DEV IAM role`
-* Add the recommended [Komiser policy](https://github.com/tailwarden/komiser/blob/master/policy.json)
-* Create a Trust Relathionship with the `ADMIN` role (once it's created)
+Add the recommended [Komiser policy](https://github.com/tailwarden/komiser/blob/master/policy.json)
+Create a Trust Relathionship with the `ADMIN` role (once it's created)
 ```
  {
      "Version": "2012-10-17",
@@ -405,8 +418,8 @@ Solution diagram:
 ```
 
 ### Create an `ADMIN IAM role`
-* Create a [role](#create-iam-role-and-attach-a-komiser-iam-policy) with the same configuration as above. 
-* Additionally attach the policy to assume the `DEV` role
+Create a [role](#create-iam-role-and-attach-a-komiser-iam-policy) with the same configuration as above. 
+Additionally attach the policy to assume the `DEV` role
 ```
  {
      "Version": "2012-10-17",

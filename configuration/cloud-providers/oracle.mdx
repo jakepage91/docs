@@ -4,13 +4,16 @@ title: Oracle Cloud Infrastructure (OCI)
 sidebar_label: Oracle Cloud Infrastructure (OCI)
 ---
 
-## Supported resources
-- Autonomous databases
-- Compute instances
-- Functions
-- Identity policies
-- Object storage
-- Storage block volumes
+<AccordionGroup>
+  <Accordion title="Supported resource list">
+  - Autonomous databases
+  - Compute instances
+  - Functions
+  - Identity policies
+  - Object storage
+  - Storage block volumes
+  </Accordion>
+</AccordionGroup>
 
 ## Local Komiser CLI (Single Account)
 
@@ -25,7 +28,7 @@ Choose between these two methods of persisting your OCI account data.
 [postgres]
 uri="postgres://postgres:komiser@localhost:5432/komiser?sslmode=disable"
 ```
-Note: For Postgres, Komiser anticipates the existence of a role `postgres` and a database `komiser` on the local Postgres server.
+<Tip> For Postgres, Komiser anticipates the existence of a role `postgres` and a database `komiser` on the local Postgres server. </Tip>
 
 #### SQLite
 

@@ -4,10 +4,13 @@ title: Azure
 sidebar_label: Azure
 ---
 
-## Supported resources
-- Disks
-- Machine Images
-- Virtual Machines
+<AccordionGroup>
+  <Accordion title="Supported resource list">
+  - Disks
+  - Machine Images
+  - Virtual Machines
+  </Accordion>
+</AccordionGroup>
 
 ## Local Komiser CLI (Single account)
 
@@ -21,7 +24,7 @@ We've also added 2 methods of persisting your account data.
 [postgres]
 uri="postgres://postgres:komiser@localhost:5432/komiser?sslmode=disable"
 ```
-Note: For Postgres, Komiser anticipates the existence of a role `postgres` and a database `komiser` on the local Postgres server.
+<Tip> For Postgres, Komiser anticipates the existence of a role `postgres` and a database `komiser` on the local Postgres server. </Tip>
 
 ### SQLite
 
@@ -99,7 +102,7 @@ file="komiser.db
 
 The above example integrates a single Azure account to Komiser, if you want to add [more accounts](./azure.md#local-komiser-cli-multiple-accounts) you would add additional `[[azure]]` blocks, adding unique credentials to each block.
 
->Currently, if you want to integrate your Azure account with Komiser's `Azure support (v1)`, the only option available is to add your sensitive credentials directly in the config.toml file. While this is a viable solution for testing and development environments, we recognize that it's `not a production-ready solution`, and we're actively working on delivering more secure and scalable authentication options in future updates.
+> Currently, if you want to integrate your Azure account with Komiser's `Azure support (v1)`, the only option available is to add your sensitive credentials directly in the config.toml file. While this is a viable solution for testing and development environments, we recognize that it's `not a production-ready solution`, and we're actively working on delivering more secure and scalable authentication options in future updates.
 
 Once you have added the environment variables to the configuration file, in the same directory, run the command:
 
@@ -107,7 +110,7 @@ Once you have added the environment variables to the configuration file, in the 
 komiser start 
 ```
 
-* Point your browser to `http://localhost:3000`
+Point your browser to `http://localhost:3000`
 
 ## Local Komiser CLI (Multiple accounts)
 Simply add more authentication blocks to the configuration file
