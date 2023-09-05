@@ -16,8 +16,14 @@ komiser start
 ---
 
 <img
-  src="/images/config-komiser.png"
-  alt="Config-Komiser"
+  className="block dark:hidden"
+  src="/images/komiser-config-light.png"
+  alt="Hero Light"
+/>
+<img
+  className="hidden dark:block"
+  src="/images/komiser-config-dark.png"
+  alt="Hero Dark"
 />
 
 Cloud provider account configuration is done through the config.toml file, using either the `ENVIRONMENT_VARIABLES` or `CREDENTIALS_FILE`. Komiser now supports multiple cloud accounts by default. 
@@ -31,7 +37,7 @@ Once added the credentials to your cloud provider accounts you will want to choo
 [postgres]
 uri="postgres://postgres:komiser@localhost:5432/komiser?sslmode=disable"
 ```
-Note: For Postgres, Komiser anticipates the existence of a role `postgres` and a database `komiser` on the local Postgres server.
+<Tip> For Postgres, Komiser anticipates the existence of a role `postgres` and a database `komiser` on the local Postgres server. </Tip>
 
 #### SQLite
 ```
@@ -41,7 +47,7 @@ Note: For Postgres, Komiser anticipates the existence of a role `postgres` and a
   file = "komiser.db"
 ```
 
- *The reason for this external data persistence is to improve the filtering, sorting and tagging management experience making it faster and smoother. It also serves as a standalone DB which you are free to query and visualize as you see fit.*  
+<Note> The reason for this external data persistence is to improve the filtering, sorting and tagging management experience making it faster and smoother. It also serves as a standalone DB which you are free to query and visualize as you see fit. </Note>
 
 ### Example config.toml
 ```
