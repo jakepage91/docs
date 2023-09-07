@@ -69,7 +69,7 @@
     },
     {
       "group": "Getting Started",
-      "pages": ["getting-started/introduction", "getting-started/installation", "getting-started/quickstart"]
+      "pages": ["getting-started/installation", "getting-started/quickstart"]
     },
     {
       "group": "Configuration",
